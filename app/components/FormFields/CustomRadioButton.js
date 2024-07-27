@@ -1,7 +1,9 @@
-//CustomRadioButton.js
+// CustomRadioButton.js
 
 import React from "react";
-import Step1 from "../Data/Step1";
+import FormDataConfig from "../FormDataConfig";
+
+const Step1 = FormDataConfig.steps.find((step) => step.step === 1).fields;
 
 const CustomRadioButton = ({ questionId, onChange, selectedValue }) => {
   const question = Step1.find((q) => q.id === questionId);

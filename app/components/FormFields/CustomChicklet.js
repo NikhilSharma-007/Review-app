@@ -1,7 +1,9 @@
 // CustomChicklet.js
 
 import React from "react";
-import Step2 from "../Data/Step2";
+import FormDataConfig from "../FormDataConfig";
+
+const Step2 = FormDataConfig.steps.find((step) => step.step === 2).fields;
 
 const CustomChicklet = ({ questionId, onChange, selectedValues }) => {
   const question = Step2.find((q) => q.id === questionId);
