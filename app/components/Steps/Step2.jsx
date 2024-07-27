@@ -1,5 +1,6 @@
+//Step2.jsx
 import React, { useState } from "react";
-import CustomChicklet from "../FormFields/CustomChicklet";
+import Activation from "../Activation";
 import Step2Data from "../Data/Step2";
 
 const Step2 = ({ onResponsesChange }) => {
@@ -26,7 +27,8 @@ const Step2 = ({ onResponsesChange }) => {
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
       {Step2Data.map((question) => (
         <div key={question.id} className="mb-6">
-          <CustomChicklet
+          <Activation
+            componentType="chicklet"
             questionId={question.id}
             onChange={handleResponseChange}
             selectedValues={responses[question.id] || []}

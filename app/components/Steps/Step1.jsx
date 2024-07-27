@@ -1,30 +1,33 @@
+//Step1.jsx
 import React, { useState, useEffect } from "react";
-import CustomRadioButton from "../FormFields/CustomRadioButton";
+import Activation from "../Activation";
 import Step1Data from "../Data/Step1";
 
 const Step1 = ({ onSubmit }) => {
   const [responses, setResponses] = useState({});
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleResponseChange = (questionId, value) => {
     setResponses((prev) => ({
       ...prev,
       [questionId]: value,
     }));
+    setHasSubmitted(false);
   };
 
-  // This effect will only run when the responses object changes
   useEffect(() => {
-    // Only submit if there are any responses
-    if (Object.keys(responses).length > 0) {
+    if (Object.keys(responses).length > 0 && !hasSubmitted) {
       onSubmit(responses);
+      setHasSubmitted(true);
     }
-  }, [responses]);
+  }, [responses, onSubmit, hasSubmitted]);
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
       {Step1Data.map((question) => (
         <div key={question.id} className="mb-6">
-          <CustomRadioButton
+          <Activation
+            componentType="radio"
             questionId={question.id}
             onChange={handleResponseChange}
             selectedValue={responses[question.id] || ""}
