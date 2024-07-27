@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Activation from "../Activation";
-import FormDataConfig from "../FormDataConfig";
+import Activation from "../../components/Activation";
+import FormDataConfig from "../../components/FormDataConfig";
 
 const Step1 = ({ onSubmit }) => {
   const [responses, setResponses] = useState({});
