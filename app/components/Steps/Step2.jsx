@@ -1,10 +1,13 @@
 //Step2.jsx
 import React, { useState } from "react";
 import Activation from "../Activation";
-import Step2Data from "../Data/Step2";
+import FormDataConfig from "../FormDataConfig";
 
 const Step2 = ({ onResponsesChange }) => {
   const [responses, setResponses] = useState({});
+
+  // Extract Step2Data from FormDataConfig
+  const Step2Data = FormDataConfig.steps[1].fields;
 
   const handleResponseChange = (questionId, value) => {
     setResponses((prev) => {

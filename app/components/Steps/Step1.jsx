@@ -1,11 +1,13 @@
-//Step1.jsx
 import React, { useState, useEffect } from "react";
 import Activation from "../Activation";
-import Step1Data from "../Data/Step1";
+import FormDataConfig from "../FormDataConfig";
 
 const Step1 = ({ onSubmit }) => {
   const [responses, setResponses] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
+
+  // Extract Step1Data from FormDataConfig
+  const Step1Data = FormDataConfig.steps[0].fields;
 
   const handleResponseChange = (questionId, value) => {
     setResponses((prev) => ({
